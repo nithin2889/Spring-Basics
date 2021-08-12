@@ -10,7 +10,7 @@ public class CreateStudentDemo {
 
   public static void main(String[] args) {
     // create a session factory
-    SessionFactory sessionFactory = Utils.getSessionFactory();
+    SessionFactory sessionFactory = Utils.getSessionFactory(Student.class);
 
     // create a session
     Session session = Utils.getSession(sessionFactory);

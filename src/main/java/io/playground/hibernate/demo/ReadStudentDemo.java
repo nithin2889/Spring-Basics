@@ -9,7 +9,7 @@ public class ReadStudentDemo {
 
   public static void main(String[] args) {
     // create a session factory
-    SessionFactory sessionFactory = Utils.getSessionFactory();
+    SessionFactory sessionFactory = Utils.getSessionFactory(Student.class);
 
     // create a session
     Session session = Utils.getSession(sessionFactory);
@@ -35,7 +35,7 @@ public class ReadStudentDemo {
       System.out.println("Saved student. Generated id: " + student1.getId());
 
       // get a new session again and start the transaction
-      sessionFactory = Utils.getSessionFactory();
+      sessionFactory = Utils.getSessionFactory(Student.class);
       session = Utils.getSession(sessionFactory);
 
       // start a transaction

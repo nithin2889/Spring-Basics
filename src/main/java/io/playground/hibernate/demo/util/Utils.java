@@ -1,16 +1,15 @@
 package io.playground.hibernate.demo.util;
 
-import io.playground.hibernate.demo.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class Utils {
 
-  public static SessionFactory getSessionFactory() {
+  public static SessionFactory getSessionFactory(Class className) {
     return new Configuration()
         .configure("hibernate.cfg.xml")
-        .addAnnotatedClass(Student.class)
+        .addAnnotatedClass(className)
         .buildSessionFactory();
   }
 
