@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreatCoursesDemo {
+public class CreateCoursesDemo {
 
   public static void main(String[] args) {
     // create a session factory
