@@ -2,6 +2,7 @@ package io.playground.hibernate.demo.aop;
 
 import io.playground.hibernate.demo.aop.config.DemoConfig;
 import io.playground.hibernate.demo.aop.dao.AccountDAO;
+import io.playground.hibernate.demo.aop.dao.MembershipDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainDemoApp {
@@ -13,13 +14,25 @@ public class MainDemoApp {
 
     // get the bean from spring container
     AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
+    MembershipDAO theMembershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
 
     // call the business method
-    theAccountDAO.addAccount();
+    Account acc1 = new Account();
+    acc1.setLevel("1");
+    acc1.setName("Savings");
 
-    // calling again
-    System.out.println("\ncalling again\n");
-    theAccountDAO.addAccount();
+    // call the account dao getter and setter
+    theAccountDAO.setName("foobar");
+    theAccountDAO.setServiceCode("gold");
+
+    String name = theAccountDAO.getName();
+    String serviceCode = theAccountDAO.getServiceCode();
+
+    theAccountDAO.addAccount(acc1, true, false);
+    theAccountDAO.doWork();
+
+    theMembershipDAO.addAccount();
+    theMembershipDAO.goToSleep();
 
     // close the context
     context.close();
