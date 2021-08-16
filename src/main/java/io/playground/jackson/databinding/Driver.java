@@ -16,6 +16,7 @@ public class Driver {
           "Student is: " + theStudent.getFirstName() + " " + theStudent.getLastName());
       System.out.println("Street: " + theStudent.getAddress().getStreet());
       System.out.println("City: " + theStudent.getAddress().getCity());
+
       System.out.println("Languages: ");
       for (String language : theStudent.getLanguages()) {
         System.out.println(language);
