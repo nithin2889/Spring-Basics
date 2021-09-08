@@ -14,6 +14,19 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class MyDemoLoggingAspect {
 
+  /*
+  Before advice - run before the method
+  After returning advice - run after the method (successful execution)
+  After throwing advice - run after the method (if exception is thrown)
+  After (finally) advice - run after the method (finally)
+  Around advice - run before and after the method
+
+  Pointcut expression Syntax:
+  execution(modifiers-pattern? return-type-pattern declaring-type-pattern?
+  method-name-pattern(param-pattern) throws-pattern?)
+
+  Ex: @Before("execution(public void io.playground.hibernate.demo.aop.dao.addAccount())")
+  */
   // this is where we add all of our related advices for logging
   @Pointcut("execution(* io.playground.hibernate.demo.aop.*.*.*(..))")
   private void forDAOPackage() {}
